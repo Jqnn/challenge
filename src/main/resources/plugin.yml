@@ -1,0 +1,11 @@
+name: Challenges
+api-version: '1.21'
+version: '1.0.0'
+author: jqnn
+website: https://jqnn.studio
+main: de.jqnn.challenge.ChallengeSystem
+libraries:
+  - "net.axay:kspigot:1.21.0"
+  - "net.kyori:adventure-api:4.17.0"
+  - "net.kyori:adventure-text-minimessage:4.17.0"
+  - "org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.0.20"
