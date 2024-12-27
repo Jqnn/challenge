@@ -25,12 +25,15 @@ import org.bukkit.entity.Player
 object ResetCommand {
 
     private val challengeSystem = ChallengeSystem.challengeSystem
+    private val challengeManager = this.challengeSystem.challengeManager
     private val prefix = this.challengeSystem.prefix
     private val configAdapter = this.challengeSystem.configAdapter
 
     init {
         command("reset") {
             this.runs {
+                challengeManager.challenges.forEach { it.onReset() }
+
                 configAdapter.set("ResetOnRestart", true)
                 configAdapter.save()
 
