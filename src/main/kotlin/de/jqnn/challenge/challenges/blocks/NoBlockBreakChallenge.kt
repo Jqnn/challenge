@@ -10,7 +10,7 @@ import org.bukkit.event.block.BlockBreakEvent
 import org.bukkit.event.block.BlockPlaceEvent
 
 class NoBlockBreakChallenge :
-    Challenge("No Block Break", Material.IRON_PICKAXE, listOf(cmp("Man darf keine Blöcke abbauen."))) {
+    Challenge("No Block Break", Material.IRON_PICKAXE, listOf(cmp("Man darf keine Blöcke abbauen.")), "§3") {
 
     init {
         listen<BlockBreakEvent> {
@@ -19,7 +19,7 @@ class NoBlockBreakChallenge :
 
             val player = it.player
             if (player.gameMode != GameMode.SURVIVAL) return@listen
-            timer.updateState(TimerState.CHALLENGE_LOOSE, "§b" + player.name + " §rhat einen Block §babgebaut§8.")
+            timer.updateState(TimerState.CHALLENGE_LOOSE, "§3" + player.name + " §rhat einen Block §3abgebaut§8.")
         }
     }
 }

@@ -9,7 +9,7 @@ import org.bukkit.Material
 import org.bukkit.event.block.BlockPlaceEvent
 
 class NoBlockPlaceChallenge :
-    Challenge("No Block Place", Material.GRASS_BLOCK, listOf(cmp("Man darf keine Blöcke platzieren."))) {
+    Challenge("No Block Place", Material.GRASS_BLOCK, listOf(cmp("Man darf keine Blöcke platzieren.")), "§3") {
 
     init {
         listen<BlockPlaceEvent> {
@@ -18,7 +18,7 @@ class NoBlockPlaceChallenge :
 
             val player = it.player
             if (player.gameMode != GameMode.SURVIVAL) return@listen
-            timer.updateState(TimerState.CHALLENGE_LOOSE, "§b" + player.name + " §rhat einen Block §bplatziert§8.")
+            timer.updateState(TimerState.CHALLENGE_LOOSE, "§3" + player.name + " §rhat einen Block §3platziert§8.")
         }
     }
 }
