@@ -55,11 +55,11 @@ class TwoMobKillChallenge : Challenge("Two Mob Kill", Material.IRON_SWORD, empty
     }
 
     override fun onReset() {
-        this.configAdapter.set("Challenge.KilledMobs", 0)
+        this.configAdapter.set("Challenge.KilledMobs", "0")
         this.configAdapter.save()
     }
 
     override fun onSave() {
-        this.configAdapter.set("Challenge.KilledMobs", killedMobs)
+        this.configAdapter.set("Challenge.KilledMobs", "$killedMobs")
     }
 }
