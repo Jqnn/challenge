@@ -54,15 +54,15 @@ abstract class Challenge(
 
     open fun onDisable() {}
 
-    fun onReset() {}
+    open fun onReset() {}
+
+    open fun onSave() {}
 
     fun onTimerStart() {}
 
     fun onTimerTick() {}
 
     fun onTimerStop() {}
-
-    open fun onSave() {}
 
     val itemStack = itemStack(material) {
         this.editMeta {
