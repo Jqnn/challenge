@@ -5,6 +5,7 @@ import de.jqnn.challenge.challenges.blocks.NoBlockPlaceChallenge
 import de.jqnn.challenge.challenges.movement.NoJumpChallenge
 import de.jqnn.challenge.challenges.movement.NoSneakChallenge
 import de.jqnn.challenge.challenges.player.NoDamageChallenge
+import de.jqnn.challenge.challenges.player.NoFallDamageChallenge
 import org.bukkit.inventory.ItemStack
 import org.slf4j.LoggerFactory
 
@@ -24,6 +25,7 @@ class ChallengeManager {
         this.challenges.add(NoSneakChallenge())
 
         this.challenges.add(NoDamageChallenge())
+        this.challenges.add(NoFallDamageChallenge())
 
         this.logger.info("Loaded ${this.challenges.size} challenges.")
         this.challengeInventory = ChallengeInventory(this)
