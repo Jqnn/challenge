@@ -9,7 +9,7 @@ import org.bukkit.Material
 import org.bukkit.event.block.BlockPlaceEvent
 
 class NoBlockPlaceChallenge :
-    Challenge("No Block Place", Material.GRASS_BLOCK, listOf(cmp("Man darf keine Blöcke platzieren.")), "§3") {
+    Challenge("No Block Place", Material.GRASS_BLOCK, emptyList(), "§3") {
 
     init {
         listen<BlockPlaceEvent> {

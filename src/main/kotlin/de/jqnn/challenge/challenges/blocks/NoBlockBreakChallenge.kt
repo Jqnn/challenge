@@ -10,7 +10,7 @@ import org.bukkit.event.block.BlockBreakEvent
 import org.bukkit.event.block.BlockPlaceEvent
 
 class NoBlockBreakChallenge :
-    Challenge("No Block Break", Material.IRON_PICKAXE, listOf(cmp("Man darf keine Blöcke abbauen.")), "§3") {
+    Challenge("No Block Break", Material.IRON_PICKAXE, emptyList(), "§3") {
 
     init {
         listen<BlockBreakEvent> {
