@@ -31,7 +31,8 @@ class TwoMobKillChallenge : Challenge("Two Mob Kill", Material.IRON_SWORD, empty
     private var killedMobs = 0
 
     init {
-        killedMobs = this.configAdapter.getInt("Challenge.KilledMobs")
+        if (this.configAdapter.existsKey("Challenge.KilledMobs"))
+            killedMobs = this.configAdapter.getInt("Challenge.KilledMobs")
         listen<EntityDeathEvent> {
             if (!this.timer.isRunning()) return@listen
             if (!(this.enabled)) return@listen
@@ -43,6 +44,7 @@ class TwoMobKillChallenge : Challenge("Two Mob Kill", Material.IRON_SWORD, empty
             val player = it.entity.killer ?: return@listen
             if (player.gameMode != GameMode.SURVIVAL) return@listen
 
+            this.killedMobs++
             if (this.killedMobs > 2) {
                 timer.updateState(TimerState.CHALLENGE_LOOSE, "${player.name} hat zu viele §dEntities §rgetötet§8.")
                 return@listen
@@ -50,6 +52,11 @@ class TwoMobKillChallenge : Challenge("Two Mob Kill", Material.IRON_SWORD, empty
 
             Bukkit.broadcast(this.prefix.plus(cmp("§d${entityType.name} §rwurde getötet§8. §rNoch übrige Kills§8: §d${2 - this.killedMobs}")))
         }
+    }
+
+    override fun onReset() {
+        this.configAdapter.set("Challenge.KilledMobs", 0)
+        this.configAdapter.save()
     }
 
     override fun onSave() {
