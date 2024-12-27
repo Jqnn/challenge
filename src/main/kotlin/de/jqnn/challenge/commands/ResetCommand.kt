@@ -6,7 +6,6 @@ import de.jqnn.challenge.extensions.plus
 import net.axay.kspigot.commands.command
 import net.axay.kspigot.commands.runs
 import org.bukkit.Bukkit
-import org.bukkit.entity.Player
 
 /********************************************************************************
  *    Urheberrechtshinweis                                                      *
@@ -27,16 +26,12 @@ object ResetCommand {
     private val challengeSystem = ChallengeSystem.challengeSystem
     private val challengeManager = this.challengeSystem.challengeManager
     private val prefix = this.challengeSystem.prefix
-    private val configAdapter = this.challengeSystem.configAdapter
 
     init {
         command("reset") {
             this.runs {
                 challengeManager.challenges.forEach { it.onReset() }
-
-                configAdapter.set("ResetOnRestart", true)
-                configAdapter.save()
-
+                challengeSystem.reset = true
                 Bukkit.getOnlinePlayers().forEach {
                     it.kick(prefix.plus(cmp("Die §bWelten §rwerden jetzt §bzurückgesetzt§8.")))
                 }
