@@ -1,7 +1,6 @@
 package de.jqnn.challenge.challenges.blocks
 
 import de.jqnn.challenge.challenges.Challenge
-import de.jqnn.challenge.extensions.cmp
 import de.jqnn.challenge.timer.TimerState
 import net.axay.kspigot.event.listen
 import org.bukkit.GameMode

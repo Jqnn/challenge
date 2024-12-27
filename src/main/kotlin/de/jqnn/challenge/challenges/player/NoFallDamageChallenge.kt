@@ -3,11 +3,9 @@ package de.jqnn.challenge.challenges.player
 import de.jqnn.challenge.challenges.Challenge
 import de.jqnn.challenge.timer.TimerState
 import net.axay.kspigot.event.listen
-import org.bukkit.Bukkit
 import org.bukkit.GameMode
 import org.bukkit.Material
 import org.bukkit.entity.Player
-import org.bukkit.event.block.BlockBreakEvent
 import org.bukkit.event.entity.EntityDamageEvent
 
 class NoFallDamageChallenge : Challenge("No Fall Damage", Material.LEATHER_BOOTS, emptyList(), "§c") {

@@ -50,7 +50,7 @@ class Timer {
 
     fun updateState(timerState: TimerState, message: String? = null) {
         if (this.timerState == timerState) return
-        this.timerState = timerState;
+        this.timerState = timerState
 
         if (this.timerState == TimerState.RUNNING) {
             Bukkit.getOnlinePlayers().forEach {
