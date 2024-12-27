@@ -16,7 +16,7 @@ abstract class Challenge(
 
     val timer = ChallengeSystem.challengeSystem.timer
     val displayName = "${this.colorCode}${this.name}"
-    val prefix = "§8§l[${this.colorCode}${this.name}§8§l] §r"
+    val prefix = cmp("§8§l[${this.colorCode}${this.name}§8§l] §r")
 
     var enabled: Boolean
     protected val configAdapter: ConfigAdapter
@@ -62,7 +62,7 @@ abstract class Challenge(
 
     fun onTimerStop() {}
 
-    fun onSave() {}
+    open fun onSave() {}
 
     val itemStack = itemStack(material) {
         this.editMeta {
