@@ -36,7 +36,7 @@ class TwoMobKillChallenge : Challenge("Two Mob Kill", Material.IRON_SWORD, empty
             if (!this.timer.isRunning()) return@listen
             if (!(this.enabled)) return@listen
             val entityType = it.entityType
-            if (entityType == EntityType.ENDER_DRAGON || entityType == EntityType.END_CRYSTAL) return@listen
+            if (entityType == EntityType.ENDER_DRAGON || entityType == EntityType.END_CRYSTAL || entityType == EntityType.WITHER) return@listen
             if (it.entity.killer == null) return@listen
             if (it.entity.killer !is Player) return@listen
 
