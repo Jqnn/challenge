@@ -14,7 +14,7 @@ class ConfigAdapter(path: String, configName: String) {
     private var configurationFile: File? = null
     private var valueMap = LinkedHashMap<String, Any>()
 
-    private val gson = GsonBuilder().setPrettyPrinting().create()
+    val gson = GsonBuilder().setPrettyPrinting().create()
 
     init {
         val directory = File("plugins/Challenges/$path")
@@ -63,7 +63,7 @@ class ConfigAdapter(path: String, configName: String) {
         return getString(key).toIntOrNull() ?: 0
     }
 
-    fun getList(key: String): List<*> {
+    fun getList(key: String): List<*>{
         return this.valueMap[key] as List<*>
     }
 

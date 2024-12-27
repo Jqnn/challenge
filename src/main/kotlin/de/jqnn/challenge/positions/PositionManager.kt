@@ -23,14 +23,16 @@ class PositionManager {
 
     private val challengeSystem = ChallengeSystem.challengeSystem
     private val configAdapter = this.challengeSystem.configAdapter
-    private val systemPrefix = this.challengeSystem.prefix
+    private val gson = this.configAdapter.gson
 
     val prefix = cmp("§8§l[§5Positionen§8§l] §r")
     val positions = mutableListOf<Position>()
 
     init {
-        configAdapter.getList("Positions").forEach {
-            this.positions.add(it as Position)
+        if (this.configAdapter.existsKey("Positions")) {
+            (this.configAdapter.getList("Positions")).forEach {
+                this.positions.add(gson.fromJson(it.toString(), Position::class.java))
+            }
         }
     }
 
@@ -38,9 +40,9 @@ class PositionManager {
         this.positions.add(Position(name, location.world.name, location.blockX, location.blockY, location.blockZ))
     }
 
-    fun getLocation(name: String) = this.positions.firstOrNull { it.name.equals(name, true) }
+    fun getPosition(name: String) = this.positions.firstOrNull { it.name.equals(name, true) }
 
-    fun save() {
+    fun savePositions() {
         this.configAdapter.set("Positions", positions)
     }
 
