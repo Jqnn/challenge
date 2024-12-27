@@ -22,7 +22,7 @@ class Timer {
     init {
         if (!(this.configAdapter.existsKey("Timer.Way"))) {
             this.configAdapter.set("Timer.Way", TimerWay.ADJECTIVE.name)
-            this.configAdapter.set("Timer.Time", 0)
+            this.configAdapter.set("Timer.Time", "0")
             this.configAdapter.save()
         }
 
@@ -96,7 +96,7 @@ class Timer {
     }
 
     fun save() {
-        configAdapter.set("Timer.Time", this.seconds)
+        configAdapter.set("Timer.Time", "${this.seconds}")
         configAdapter.set("Timer.Way", this.timerWay.name)
         configAdapter.save()
     }
