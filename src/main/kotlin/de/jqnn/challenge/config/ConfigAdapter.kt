@@ -63,8 +63,8 @@ class ConfigAdapter(path: String, configName: String) {
         return getString(key).toIntOrNull() ?: 0
     }
 
-    fun getList(key: String): Any? {
-        return this.valueMap[key]
+    fun getList(key: String): List<*> {
+        return this.valueMap[key] as List<*>
     }
 
     fun load() {
