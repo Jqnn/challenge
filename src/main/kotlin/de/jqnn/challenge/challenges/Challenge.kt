@@ -49,7 +49,6 @@ abstract class Challenge(
         this.configAdapter.save()
     }
 
-
     open fun onEnable() {}
 
     open fun onDisable() {}
