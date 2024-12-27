@@ -50,9 +50,9 @@ abstract class Challenge(
     }
 
 
-    fun onEnable() {}
+    open fun onEnable() {}
 
-    fun onDisable() {}
+    open fun onDisable() {}
 
     fun onReset() {}
 

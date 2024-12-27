@@ -1,7 +1,6 @@
 package de.jqnn.challenge.challenges
 
 import de.jqnn.challenge.challenges.blocks.NoBlockBreakChallenge
-import de.jqnn.challenge.challenges.inventory.ChallengeInventory
 import de.jqnn.challenge.challenges.blocks.NoBlockPlaceChallenge
 import de.jqnn.challenge.challenges.movement.NoJumpChallenge
 import de.jqnn.challenge.challenges.movement.NoSneakChallenge

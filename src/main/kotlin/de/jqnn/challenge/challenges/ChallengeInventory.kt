@@ -1,7 +1,5 @@
-package de.jqnn.challenge.challenges.inventory
+package de.jqnn.challenge.challenges
 
-import de.jqnn.challenge.challenges.Challenge
-import de.jqnn.challenge.challenges.ChallengeManager
 import de.jqnn.challenge.extensions.cmp
 import de.jqnn.challenge.extensions.skullItem
 import net.axay.kspigot.items.itemStack
