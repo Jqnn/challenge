@@ -31,6 +31,10 @@ class ConfigAdapter(path: String, configName: String) {
         this.valueMap[key] = value
     }
 
+    fun setInt(key: String, value: Int) {
+        this.valueMap[key] = value
+    }
+
     fun setList(key: String, list: List<String>) {
         this.valueMap[key] = list
     }
@@ -56,7 +60,7 @@ class ConfigAdapter(path: String, configName: String) {
     }
 
     fun getInt(key: String): Int {
-        return (this[key] as Double).toInt()
+        return getString(key).toIntOrNull() ?: 0
     }
 
     fun getList(key: String): Any? {
