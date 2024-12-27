@@ -10,7 +10,7 @@ import org.bukkit.entity.Player
 import org.bukkit.event.block.BlockBreakEvent
 import org.bukkit.event.entity.EntityDamageEvent
 
-class NoFallDamageChallenge : Challenge("No fall damage", Material.LEATHER_BOOTS, emptyList(), "§c") {
+class NoFallDamageChallenge : Challenge("No Fall Damage", Material.LEATHER_BOOTS, emptyList(), "§c") {
 
     init {
         listen<EntityDamageEvent> {
