@@ -2,6 +2,7 @@ package de.jqnn.challenge
 
 import de.jqnn.challenge.challenges.ChallengeManager
 import de.jqnn.challenge.commands.ChallengesCommand
+import de.jqnn.challenge.commands.ResetCommand
 import de.jqnn.challenge.commands.TimerCommand
 import de.jqnn.challenge.config.ConfigAdapter
 import de.jqnn.challenge.extensions.cmp
@@ -9,6 +10,7 @@ import de.jqnn.challenge.listener.InventoryClickListener
 import de.jqnn.challenge.timer.Timer
 import de.jqnn.challenge.timer.TimerState
 import net.axay.kspigot.main.KSpigot
+import java.io.File
 
 class ChallengeSystem : KSpigot() {
 
@@ -25,6 +27,17 @@ class ChallengeSystem : KSpigot() {
         challengeSystem = this
         this.configAdapter = ConfigAdapter("", "config.json")
         this.configAdapter.load()
+
+        if (this.configAdapter.existsKey("ResetOnRestart"))
+            if (this.configAdapter.getBoolean("ResetOnRestart")) {
+                File("world").deleteRecursively()
+                File("world_nether").deleteRecursively()
+                File("world_the_end").deleteRecursively()
+
+                this.configAdapter.set("Timer.Time", "0")
+                this.configAdapter.set("ResetOnRestart", false)
+                this.configAdapter.save()
+            }
     }
 
     override fun startup() {
@@ -32,6 +45,7 @@ class ChallengeSystem : KSpigot() {
         this.challengeManager = ChallengeManager()
 
         ChallengesCommand
+        ResetCommand
         TimerCommand
 
         InventoryClickListener
