@@ -57,8 +57,7 @@ object InventoryClickListener {
                 inventory.setItem(
                     it.slot,
                     challenge.itemStack.apply {
-                        if (challenge.enabled)
-                            this.editMeta { meta -> meta.setEnchantmentGlintOverride(true) }
+                        this.editMeta { meta -> meta.setEnchantmentGlintOverride(challenge.enabled) }
                     })
 
                 player.playSound(player.location, Sound.BLOCK_NOTE_BLOCK_PLING, 1f, 1f)
