@@ -7,6 +7,8 @@ import de.jqnn.challenge.commands.TimerCommand
 import de.jqnn.challenge.config.ConfigAdapter
 import de.jqnn.challenge.extensions.cmp
 import de.jqnn.challenge.listener.InventoryClickListener
+import de.jqnn.challenge.positions.Position
+import de.jqnn.challenge.positions.PositionManager
 import de.jqnn.challenge.timer.Timer
 import de.jqnn.challenge.timer.TimerState
 import net.axay.kspigot.main.KSpigot
@@ -22,6 +24,7 @@ class ChallengeSystem : KSpigot() {
     lateinit var configAdapter: ConfigAdapter
     lateinit var timer: Timer
     lateinit var challengeManager: ChallengeManager
+    lateinit var positionManager: PositionManager
 
     override fun load() {
         challengeSystem = this
@@ -36,6 +39,7 @@ class ChallengeSystem : KSpigot() {
 
                 this.configAdapter.set("Timer.Time", "0")
                 this.configAdapter.set("ResetOnRestart", false)
+                this.configAdapter.set("Positions", emptyList<Position>())
                 this.configAdapter.save()
             }
     }
@@ -43,6 +47,7 @@ class ChallengeSystem : KSpigot() {
     override fun startup() {
         this.timer = Timer()
         this.challengeManager = ChallengeManager()
+        this.positionManager = PositionManager()
 
         ChallengesCommand
         ResetCommand
