@@ -4,6 +4,7 @@ import de.jqnn.challenge.challenges.blocks.NoBlockBreakChallenge
 import de.jqnn.challenge.challenges.blocks.NoBlockPlaceChallenge
 import de.jqnn.challenge.challenges.movement.NoJumpChallenge
 import de.jqnn.challenge.challenges.movement.NoSneakChallenge
+import de.jqnn.challenge.challenges.other.TwoMobKillChallenge
 import de.jqnn.challenge.challenges.player.NoDamageChallenge
 import de.jqnn.challenge.challenges.player.NoFallDamageChallenge
 import org.bukkit.inventory.ItemStack
@@ -23,6 +24,8 @@ class ChallengeManager {
 
         this.challenges.add(NoJumpChallenge())
         this.challenges.add(NoSneakChallenge())
+
+        this.challenges.add(TwoMobKillChallenge())
 
         this.challenges.add(NoDamageChallenge())
         this.challenges.add(NoFallDamageChallenge())
